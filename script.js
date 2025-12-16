@@ -1,22 +1,39 @@
 // script.js
 console.log('Antigravity Clone Loaded');
 
-const slider = document.getElementById('cardSlider');
-const prevBtn = document.querySelector('.slider-btn.prev');
-const nextBtn = document.querySelector('.slider-btn.next');
+document.addEventListener('DOMContentLoaded', () => {
+    setupSlider({
+        containerId: 'cardSlider',
+        prevBtnId: 'features-prev',
+        nextBtnId: 'features-next',
+        itemSelector: '.feature-card'
+    });
 
-if (slider && prevBtn && nextBtn) {
+    setupSlider({
+        containerSelector: '.card-slider-list',
+        prevBtnId: 'reels-prev',
+        nextBtnId: 'reels-next',
+        itemSelector: '.card-slider-item',
+        gap: 16
+    });
+});
+
+function setupSlider({ containerId, containerSelector, prevBtnId, nextBtnId, itemSelector, gap = 0 }) {
+    const slider = containerId ? document.getElementById(containerId) : document.querySelector(containerSelector);
+    const prevBtn = document.getElementById(prevBtnId);
+    const nextBtn = document.getElementById(nextBtnId);
+
+    if (!slider || !prevBtn || !nextBtn) return;
+
     prevBtn.addEventListener('click', () => {
-        slider.scrollBy({
-            left: -slider.clientWidth / 1.5,
-            behavior: 'smooth'
-        });
+        const slideItem = slider.querySelector(itemSelector);
+        const slideWidth = slideItem ? slideItem.offsetWidth + gap : 300;
+        slider.scrollBy({ left: -slideWidth, behavior: 'smooth' });
     });
 
     nextBtn.addEventListener('click', () => {
-        slider.scrollBy({
-            left: slider.clientWidth / 1.5,
-            behavior: 'smooth'
-        });
+        const slideItem = slider.querySelector(itemSelector);
+        const slideWidth = slideItem ? slideItem.offsetWidth + gap : 300;
+        slider.scrollBy({ left: slideWidth, behavior: 'smooth' });
     });
 }

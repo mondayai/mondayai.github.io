@@ -129,8 +129,14 @@
     overflow-x: auto;
     padding-bottom: 1rem;
     -webkit-overflow-scrolling: touch;
-    scrollbar-color: #6a5f5f #ffffff;
-    scrollbar-width: thin;
+    scrollbar-width: none;
+    scrollbar-color: transparent transparent;
+    margin-right: calc(50% - 50vw);
+    padding-right: var(--page-margin);
+}
+
+.care-slider-list::-webkit-scrollbar {
+    display: none;
 }
 
 .card-slider-list ::-webkit-scrollbar {
@@ -434,4 +440,42 @@
     .yt-modal__btn--next {
         right: 8px;
     }
+}
+
+/* ================================
+   Slider Nav Buttons
+=================================== */
+.slider-nav-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
+    padding-bottom: 24px;
+    padding-right: var(--page-margin, 20px);
+}
+
+.left_slider_btn,
+.right_slider_btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: none;
+    background-color: #6a6a6a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: white;
+}
+
+.left_slider_btn:hover,
+.right_slider_btn:hover {
+    background-color: #505050;
+    transform: scale(1.05);
+}
+
+.left_slider_btn:active,
+.right_slider_btn:active {
+    transform: scale(0.95);
 }
