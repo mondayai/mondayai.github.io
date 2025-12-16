@@ -321,13 +321,13 @@ img {
     padding-right: var(--page-margin);
 }
 
-.section_cus_review {
+.cus-review {
     padding: 0 0 6rem var(--page-margin);
 }
 
 .slider-container {
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
     overflow-x: auto;
     padding-bottom: 2rem;
     /* Hide scrollbar spacing */
@@ -377,19 +377,6 @@ img {
     transform: scale(1.05);
 }
 
-.card-overlay-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #fff;
-    font-size: var(--4xl-size);
-    letter-spacing: var(--4xl-letter-spacing);
-    font-weight: 400;
-    text-align: center;
-    width: 100%;
-    z-index: 2;
-}
 
 /* Footer (Simple Clone) */
 footer {
@@ -449,7 +436,125 @@ footer {
     transition: background-color 0.2s;
 }
 
-.dot.active {
-    background-color: var(--palette-grey-1200);
-    transform: scale(1.2);
+/* 6. Utility Classes */
+/* Flexbox */
+.flex {
+    display: flex;
+}
+
+.inline-flex {
+    display: inline-flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.items-end {
+    align-items: flex-end;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+/* Spacing */
+.gap-1 {
+    gap: 4px;
+}
+
+.gap-2 {
+    gap: 8px;
+}
+
+.gap-3 {
+    gap: 12px;
+}
+
+.gap-4 {
+    gap: 16px;
+}
+
+.gap-6 {
+    gap: 24px;
+}
+
+.gap-8 {
+    gap: 32px;
+}
+
+.py-8 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+/* Sizing */
+.w-full {
+    width: 100%;
+}
+
+.h-full {
+    height: 100%;
+}
+
+.max-w-400 {
+    max-width: 400px;
+}
+
+/* Visuals */
+.object-cover {
+    object-fit: cover;
+}
+
+.opacity-80 {
+    opacity: 0.8;
+}
+
+.text-decoration-none {
+    text-decoration: none;
+}
+
+.text-inherit {
+    color: inherit;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.text-sm {
+    font-size: 14px;
+}
+
+.text-grey-800 {
+    color: var(--palette-grey-800);
+}
+
+/* Scrollbar Hide */
+.scrollbar-hide {
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE 10+ */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
 }
