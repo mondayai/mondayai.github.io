@@ -1,5 +1,4 @@
 // 1. โหลด Component
-// 1. โหลด Component
 async function loadComponent(elementId, filePath) {
     try {
         const response = await fetch(filePath);

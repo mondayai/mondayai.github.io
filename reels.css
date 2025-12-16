@@ -2,168 +2,168 @@
    Global vars
 =================================== */
 :root {
-    --yt-modal-width: 420px;
-    /* max max-width popup */
-    --yt-modal-margin: 16px;
-    /* margin from screen edge */
-    --yt-modal-radius: 18px;
-    /* box radius */
+  --yt-modal-width: 420px;
+  /* max max-width popup */
+  --yt-modal-margin: 16px;
+  /* margin from screen edge */
+  --yt-modal-radius: 18px;
+  /* box radius */
 }
 
 /* ================================
    Reel card (feed)
 =================================== */
 .yt-embed {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    aspect-ratio: 9 / 16;
-    border-radius: 0.75rem;
-    background: #fff;
-    transform: translateZ(0);
-    cursor: pointer;
-    touch-action: auto;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border-radius: var(--shape-corner-xl);
+  background: #fff;
+  transform: translateZ(0);
+  cursor: pointer;
+  touch-action: auto;
 }
 
 .yt-embed iframe {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    display: block;
-    border: 0;
-    backface-visibility: hidden;
-    transform: translateZ(0);
-    border-radius: 0 !important;
-    z-index: 0;
-    background: #fff;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  border-radius: 0 !important;
+  z-index: 0;
+  background: #fff;
 }
 
 .yt-embed .yt-thumb {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    display: block;
-    border: 0;
-    backface-visibility: hidden;
-    transform: translateZ(0);
-    border-radius: 0 !important;
-    z-index: 1;
-    background: #fff;
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  border-radius: 0 !important;
+  z-index: 1;
+  background: #fff;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
 /* thumbnail is above iframe and fades out when playing */
 .yt-embed .yt-thumb {
-    z-index: 1;
-    transition: opacity .25s ease;
+  z-index: 1;
+  transition: opacity 0.25s ease;
 }
 
 .yt-embed.is-playing .yt-thumb {
-    opacity: 0;
-    pointer-events: none;
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* overlay fixes border issues */
 .yt-embed::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    box-shadow: 0 !important;
-    pointer-events: auto;
-    z-index: 2;
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 !important;
+  pointer-events: auto;
+  z-index: 2;
 }
 
 /* Play button overlay */
 .yt-play-btn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 70px;
-    height: 70px;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-    pointer-events: none;
-    opacity: 0.5;
-    transition: opacity .25s ease;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70px;
+  height: 70px;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0.5;
+  transition: opacity 0.25s ease;
 }
 
 .yt-embed.is-playing .yt-play-btn {
-    opacity: 0;
+  opacity: 0;
 }
 
 .yt-play-btn svg {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 /* FIX black lines on tablet/mobile */
 @media (max-width: 1024px) {
-
-    .yt-embed iframe,
-    .yt-embed .yt-thumb {
-        transform: translateZ(0) scale(1.03);
-        transform-origin: center center;
-    }
+  .yt-embed iframe,
+  .yt-embed .yt-thumb {
+    transform: translateZ(0) scale(1.03);
+    transform-origin: center center;
+  }
 }
 
 @media (min-width: 1025px) {
-
-    .yt-embed iframe,
-    .yt-embed .yt-thumb {
-        transform: translateZ(0) scale(1.01);
-        transform-origin: center center;
-    }
+  .yt-embed iframe,
+  .yt-embed .yt-thumb {
+    transform: translateZ(0) scale(1.01);
+    transform-origin: center center;
+  }
 }
 
 /* ================================
    Scrollbar (if list)
 =================================== */
 .card-slider-list {
-    display: flex;
-    gap: 16px;
-    overflow-x: auto;
-    padding-bottom: 1rem;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    scrollbar-color: transparent transparent;
-    margin-right: calc(50% - 50vw);
-    padding-right: var(--page-margin);
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  scrollbar-color: transparent transparent;
+  margin-right: calc(-50vw + 50%);
+  padding-right: var(--page-margin);
+  width: 100vw;
+  max-width: 100vw;
 }
 
 .care-slider-list::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .card-slider-list ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
+  width: 10px;
+  height: 10px;
 }
 
 .card-slider-list ::-webkit-scrollbar-track {
-    background: #ffffff;
-    border: none;
-    box-shadow: none;
+  background: #ffffff;
+  border: none;
+  box-shadow: none;
 }
 
 .card-slider-list ::-webkit-scrollbar-thumb {
-    background-color: #6a5f5f;
-    border-radius: 999px;
-    border: 0;
-    box-shadow: none;
+  background-color: #6a5f5f;
+  border-radius: 999px;
+  border: 0;
+  box-shadow: none;
 }
 
 .card-slider-list ::-webkit-scrollbar-thumb:hover {
-    background-color: #5d5454;
+  background-color: #5d5454;
 }
 
 .card-slider-item {
-    flex: 0 0 280px;
-    min-width: 280px;
+  flex: 0 0 280px;
+  min-width: 280px;
 }
 
 /* ================================
@@ -171,62 +171,63 @@
 =================================== */
 .yt-modal__shop,
 .yt-shop-btn {
-    position: absolute;
-    z-index: 5;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    border-radius: 999px;
-    color: #fff;
-    text-decoration: none;
-    font: 600 14px/1 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
+  position: absolute;
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 999px;
+  color: #fff;
+  text-decoration: none;
+  font: 600 14px/1 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    Arial;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
 .yt-modal__shop {
-    bottom: calc(env(safe-area-inset-bottom, 0px) + 16px);
-    right: calc(env(safe-area-inset-right, 0px) + 16px);
-    padding: 10px 12px;
-    background: rgba(0, 0, 0, .55);
-    border: 1px solid rgba(255, 255, 255, .25);
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 16px);
+  right: calc(env(safe-area-inset-right, 0px) + 16px);
+  padding: 10px 12px;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .yt-modal__shop:hover {
-    background: rgba(0, 0, 0, .7);
+  background: rgba(0, 0, 0, 0.7);
 }
 
 .yt-modal__shop svg {
-    width: 18px;
-    height: 18px;
-    display: block;
+  width: 18px;
+  height: 18px;
+  display: block;
 }
 
 .yt-shop-btn {
-    bottom: calc(env(safe-area-inset-bottom, 0px) + 12px);
-    left: calc(env(safe-area-inset-left, 0px) + 12px);
-    padding: 8px 12px;
-    background: rgba(0, 0, 0, .25);
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 12px);
+  left: calc(env(safe-area-inset-left, 0px) + 12px);
+  padding: 8px 12px;
+  background: rgba(0, 0, 0, 0.25);
 }
 
 .yt-shop-btn:hover {
-    background: rgba(0, 0, 0, .45);
+  background: rgba(0, 0, 0, 0.45);
 }
 
 .yt-shop-btn svg {
-    display: block;
+  display: block;
 }
 
 .yt-swipe-capture {
-    z-index: 3;
+  z-index: 3;
 }
 
-@media (hover:none) {
-    .yt-swipe-capture {
-        display: none !important;
-        pointer-events: none !important;
-        touch-action: none !important;
-    }
+@media (hover: none) {
+  .yt-swipe-capture {
+    display: none !important;
+    pointer-events: none !important;
+    touch-action: none !important;
+  }
 }
 
 /* ================================
@@ -235,151 +236,150 @@
 
 /* Lock scroll on mobile */
 @media (max-width: 767px) {
-
-    .yt-modal-open,
-    .yt-modal-open body {
-        overflow: hidden;
-    }
+  .yt-modal-open,
+  .yt-modal-open body {
+    overflow: hidden;
+  }
 }
 
 .yt-modal {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, .95);
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.95);
 }
 
 .yt-modal.is-open {
-    display: flex;
+  display: flex;
 }
 
 .yt-modal__inner {
-    position: relative;
-    width: 100vw;
-    height: 100dvh;
-    height: calc(var(--yt-vh, 1vh) * 100);
+  position: relative;
+  width: 100vw;
+  height: 100dvh;
+  height: calc(var(--yt-vh, 1vh) * 100);
 }
 
 .yt-modal__frame {
-    /* NOTE: iframe uses this class directly */
-    position: absolute;
-    inset: 0;
-    width: 100vw;
-    height: 100dvh;
-    height: calc(var(--yt-vh, 1vh) * 100);
-    border: 0;
-    display: block;
+  /* NOTE: iframe uses this class directly */
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100dvh;
+  height: calc(var(--yt-vh, 1vh) * 100);
+  border: 0;
+  display: block;
 }
 
 /* Gesture layer */
 .yt-modal__gestures {
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    background: transparent;
-    touch-action: none;
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: transparent;
+  touch-action: none;
 }
 
 /* ================================
    Close Button (Mobile + Tablet)
 =================================== */
 .yt-modal__close {
-    position: absolute;
-    top: calc(env(safe-area-inset-top, 0px) + 12px);
-    right: calc(env(safe-area-inset-right, 0px) + 12px);
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255, 255, 255, .12);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, .25);
-    cursor: pointer;
-    z-index: 5;
-    color: white;
-    padding: 0;
+  position: absolute;
+  top: calc(env(safe-area-inset-top, 0px) + 12px);
+  right: calc(env(safe-area-inset-right, 0px) + 12px);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  z-index: 5;
+  color: white;
+  padding: 0;
 }
 
 /* Hover effect */
 .yt-modal__close:hover {
-    background: rgba(255, 255, 255, .20);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 /* Icon X */
 .yt-modal__close svg {
-    width: 18px;
-    height: 18px;
-    stroke: white;
-    stroke-width: 2.6;
-    pointer-events: none;
+  width: 18px;
+  height: 18px;
+  stroke: white;
+  stroke-width: 2.6;
+  pointer-events: none;
 }
 
 /* ================================
    Desktop: Bigger close button
 =================================== */
 @media (min-width: 1025px) {
-    .yt-modal__close {
-        width: 50px;
-        height: 50px;
-        top: 8px;
-        right: 8px;
-    }
+  .yt-modal__close {
+    width: 50px;
+    height: 50px;
+    top: 8px;
+    right: 8px;
+  }
 
-    .yt-modal__close svg {
-        width: 22px;
-        height: 22px;
-    }
+  .yt-modal__close svg {
+    width: 22px;
+    height: 22px;
+  }
 }
 
 /* Prev / Next buttons */
 .yt-modal__nav {
-    position: absolute;
-    inset: 0;
-    z-index: 4;
-    pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
 }
 
 .yt-modal__btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 44px;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    pointer-events: auto;
-    cursor: pointer;
-    color: #fff;
-    background: rgba(255, 255, 255, .12);
-    border: 1px solid rgba(255, 255, 255, .25);
-    border-radius: 999px;
-    backdrop-filter: blur(6px);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  cursor: pointer;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
 }
 
 .yt-modal__btn:hover {
-    background: rgba(255, 255, 255, .20);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .yt-modal__btn svg {
-    width: 20px;
-    height: 20px;
-    display: block;
-    fill: currentColor;
+  width: 20px;
+  height: 20px;
+  display: block;
+  fill: currentColor;
 }
 
 .yt-modal__btn--prev {
-    left: calc(env(safe-area-inset-left, 0px) + 12px);
+  left: calc(env(safe-area-inset-left, 0px) + 12px);
 }
 
 .yt-modal__btn--next {
-    right: calc(env(safe-area-inset-right, 0px) + 12px);
+  right: calc(env(safe-area-inset-right, 0px) + 12px);
 }
 
 /* ================================
@@ -387,57 +387,60 @@
    (Mobile < 768px = full screen as before)
 =================================== */
 @media (min-width: 768px) {
+  .yt-modal {
+    align-items: flex-end;
+    justify-content: flex-end;
+    background: transparent;
+    pointer-events: none;
+    /* click through background except box */
+  }
 
-    .yt-modal {
-        align-items: flex-end;
-        justify-content: flex-end;
-        background: transparent;
-        pointer-events: none;
-        /* click through background except box */
-    }
+  .yt-modal.is-open {
+    display: flex;
+  }
 
-    .yt-modal.is-open {
-        display: flex;
-    }
+  .yt-modal__inner {
+    position: relative;
+    pointer-events: auto;
+    width: min(var(--yt-modal-width), 55vw);
+    aspect-ratio: 9 / 16;
+    height: auto;
+    margin: 0;
+    margin-right: calc(
+      env(safe-area-inset-right, 0px) + var(--yt-modal-margin)
+    );
+    margin-bottom: calc(
+      env(safe-area-inset-bottom, 0px) + var(--yt-modal-margin)
+    );
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
+    background: #000;
+  }
 
-    .yt-modal__inner {
-        position: relative;
-        pointer-events: auto;
-        width: min(var(--yt-modal-width), 55vw);
-        aspect-ratio: 9 / 16;
-        height: auto;
-        margin: 0;
-        margin-right: calc(env(safe-area-inset-right, 0px) + var(--yt-modal-margin));
-        margin-bottom: calc(env(safe-area-inset-bottom, 0px) + var(--yt-modal-margin));
-        border-radius: 32px;
-        overflow: hidden;
-        box-shadow: 0 18px 45px rgba(0, 0, 0, .55);
-        background: #000;
-    }
+  .yt-modal__frame {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
 
-    .yt-modal__frame {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        border: 0;
-        display: block;
-    }
+  .yt-modal__close {
+    top: 8px;
+    right: 8px;
+  }
 
-    .yt-modal__close {
-        top: 8px;
-        right: 8px;
-    }
+  .yt-modal__nav {
+    inset: 0;
+  }
 
-    .yt-modal__nav {
-        inset: 0;
-    }
+  .yt-modal__btn--prev {
+    left: 8px;
+  }
 
-    .yt-modal__btn--prev {
-        left: 8px;
-    }
-
-    .yt-modal__btn--next {
-        right: 8px;
-    }
+  .yt-modal__btn--next {
+    right: 8px;
+  }
 }
